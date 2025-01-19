@@ -1,33 +1,45 @@
 print('Seja bem vindo a calculadora CLT vs PJ')
-print('''
-        Um dos dilemas encontrados na internet é a sobre o quanto compensa optar pelo regime 
-      de trabalho da CLT ou da Pessoa Jurídica. 
-      
-        Há algumas coisas que devem ser levadas em consideração ao se pensar nisso. Para mim,
-      a mais importante é saber se o valor anual da remuneração como PJ ultrabapassará o limite 
-      permitido para um MEI. É muito importante ter isso na ponta do lápis, pois a simples 
-      mudança no regime de tributação pode alterar o vaor de, aproximadamente, R$ 75,00 para 
-      R$ 1.000,00 em tributos.
-      ''')
+print('''Um dos dilemas mais comuns na internet é decidir entre o regime de trabalho da CLT ou atuar como Pessoa Jurídica (PJ).
+
+Há diversos fatores a serem considerados nessa escolha, e, para mim, o mais importante é verificar se a remuneração anual como PJ ultrapassará o limite permitido para um MEI. Essa análise é essencial, pois uma simples mudança no regime de tributação pode fazer com que os tributos passem de aproximadamente R$ 75,00 para cerca de R$ 1.000,00. Portanto, é fundamental colocar tudo na ponta do lápis antes de tomar essa decisão.''')
 
 
 salario = int(input('Qual o seu salário bruto? '))
-valeTransporte = int(input('Você possui Vale Transporte? Se sim, qual o valor mensal? Caso contrário, atribuir 0. '))
-valeRefeicao = int(input('Você possui Vale Refeição? Se sim, qual o valor mensal? Caso contrário, atribuir 0. '))
-valeAlimentacao = int(input('Você possui Vale Alimentação? Se sim, qual o valor mensal? Caso contrário, atribuir 0. '))
-planoMedico = int(input('A empresa custeia seu Plano Médico? Se sim, qual o valor mensal? Caso contrário, atribuir 0. '))
 
-fgts = salario * 0.08
-ferias = (salario / 12)  * 1.34
-decimoTerceiro = salario * 0.08
-inss = salario * 0.08
-seguroDesemprego = salario / 6 ## como a regra é de que entre 12 e 23 meses recebemos 4 parcelas, considera-se que a cada 6 meses há um mês de salário guardado
+valeTransporte = input('Você possui Vale Transporte? (y/n) ')
+if valeTransporte == 'y':
+  valorVT = int(input('Qual o valor mensal? '))
+else:
+  valorVT = 0
+
+valeRefeicao = input('Você possui Vale Refeição? (y/n) ')
+if valeRefeicao == 'y':
+  valorVR = int(input('Qual o valor mensal? '))
+else:
+  valorVRT = 0
+
+valeAlimentacao = input('Você possui Vale Alimentação? (y/n) ')
+if valeAlimentacao == 'y':
+  valorVA = int(input('Qual o valor mensal? '))
+else:
+  valorVA = 0
+
+planoMedico = input('A empresa custeia seu Plano Médico? (y/n) ')
+if planoMedico == 'y':
+  valorPM = int(input('Qual o valor mensal? '))
+else:
+  valorPM = 0
+
+fgts = round(salario * 0.08,2)
+inss = round(salario * 0.08,2)
+decimoTerceiro = round(salario /12 ,2)
+ferias = round((salario / 12)  * 1.34,2)
+seguroDesemprego = round((2424.11 * 5) / 24,2)
 
 calculo = salario + valeRefeicao + valeTransporte + valeAlimentacao + planoMedico + fgts + ferias + decimoTerceiro + inss + seguroDesemprego
 
-print(f'''
-      Sua remuneração como Pessoa Jurídica tem que ser, no mínimo, igual a R$ {calculo*1.12}.
+print(f'''Sua remuneração como Pessoa Jurídica deve ser, no mínimo, R$ {round(calculo*1.12,2)}.
 
-      Este cálculo é composto pelo Salário fornecido de R$ {salario}, somando a ele, o Vale Refeição de R$ {valeRefeicao}, o Vale Alimentação de R$ {valeAlimentacao}, o Vale Transporte de R$ {valeTransporte}, o Plano Médico de R$ {planoMedico}, além das previsões trabalhistas, sendo elas: FGTS R$ {fgts}, Férias R$ {ferias}, o Décimo Terceiro salário R$ {decimoTerceiro}, o INSS R$ {inss} e uma provisão para o Seguro Desemprego de R$ {seguroDesemprego}. Ainda, há uma alíquota para os tributos mensais.
+Esse cálculo considera o salário oferecido de R$ {salario}, acrescido dos seguintes benefícios: Vale Refeição (R$ {valeRefeicao}), Vale Alimentação (R$ {valeAlimentacao}), Vale Transporte (R$ {valeTransporte}) e Plano Médico (R$ {planoMedico}). Além disso, inclui as previsões trabalhistas, como FGTS (R$ {fgts}), Férias (R$ {ferias}), Décimo Terceiro Salário (R$ {decimoTerceiro}), INSS (R$ {inss}) e uma provisão para Seguro-Desemprego (R$ {seguroDesemprego}). Também é necessário considerar a alíquota dos tributos mensais.
 
-      Desta forma, se o valor ofertado mensalmente, for inferior que a somatório dos seus atuais valores mensais acima caldulado, não é fevorável a alteração para o regime de Pessoa Jurídica.''')
+Portanto, se o valor oferecido mensalmente for inferior à soma dos seus ganhos atuais calculados acima, a migração para o regime de Pessoa Jurídica não é vantajosa.''')
