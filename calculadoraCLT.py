@@ -16,7 +16,7 @@ valeRefeicao = input('Você possui Vale Refeição? (y/n) ')
 if valeRefeicao == 'y':
   valorVR = int(input('Qual o valor mensal? '))
 else:
-  valorVRT = 0
+  valorVR = 0
 
 valeAlimentacao = input('Você possui Vale Alimentação? (y/n) ')
 if valeAlimentacao == 'y':
@@ -36,10 +36,10 @@ decimoTerceiro = round(salario /12 ,2)
 ferias = round((salario / 12)  * 1.34,2)
 seguroDesemprego = round((2424.11 * 5) / 24,2)
 
-calculo = salario + valeRefeicao + valeTransporte + valeAlimentacao + planoMedico + fgts + ferias + decimoTerceiro + inss + seguroDesemprego
+calculo = salario + valorVT + valorVA + valorVR + valorPM + fgts + ferias + decimoTerceiro + inss + seguroDesemprego
 
 print(f'''Sua remuneração como Pessoa Jurídica deve ser, no mínimo, R$ {round(calculo*1.12,2)}.
 
-Esse cálculo considera o salário oferecido de R$ {salario}, acrescido dos seguintes benefícios: Vale Refeição (R$ {valeRefeicao}), Vale Alimentação (R$ {valeAlimentacao}), Vale Transporte (R$ {valeTransporte}) e Plano Médico (R$ {planoMedico}). Além disso, inclui as previsões trabalhistas, como FGTS (R$ {fgts}), Férias (R$ {ferias}), Décimo Terceiro Salário (R$ {decimoTerceiro}), INSS (R$ {inss}) e uma provisão para Seguro-Desemprego (R$ {seguroDesemprego}). Também é necessário considerar a alíquota dos tributos mensais.
+Esse cálculo considera o salário oferecido de R$ {salario}, acrescido dos seguintes benefícios: Vale Refeição (R$ {valorVR}), Vale Alimentação (R$ {valorVA}), Vale Transporte (R$ {valorVT}) e Plano Médico (R$ {valorPM}). Além disso, inclui as previsões trabalhistas, como FGTS (R$ {fgts}), Férias (R$ {ferias}), Décimo Terceiro Salário (R$ {decimoTerceiro}), INSS (R$ {inss}) e uma provisão para Seguro-Desemprego (R$ {seguroDesemprego}). Também é necessário considerar a alíquota dos tributos mensais.
 
 Portanto, se o valor oferecido mensalmente for inferior à soma dos seus ganhos atuais calculados acima, a migração para o regime de Pessoa Jurídica não é vantajosa.''')
