@@ -35,11 +35,12 @@ inss = round(salario * 0.08,2)
 decimoTerceiro = round(salario /12 ,2)
 ferias = round((salario / 12)  * 1.34,2)
 seguroDesemprego = round((2424.11 * 5) / 24,2)
+multa40 = fgts * 0.4
 
-calculo = salario + valorVT + valorVA + valorVR + valorPM + fgts + ferias + decimoTerceiro + inss + seguroDesemprego
+calculo = salario + valorVT + valorVA + valorVR + valorPM + fgts + multa40 + ferias + decimoTerceiro + inss + seguroDesemprego
 
-print(f'''Sua remuneração como Pessoa Jurídica deve ser, no mínimo, R$ {round(calculo*1.12,2)}.
+print(f'''Sua remuneração como Pessoa Jurídica deve ser, no mínimo, R$ {round(calculo*1.1,2)}.
 
-Esse cálculo considera o salário oferecido de R$ {salario}, acrescido dos seguintes benefícios: Vale Refeição (R$ {valorVR}), Vale Alimentação (R$ {valorVA}), Vale Transporte (R$ {valorVT}) e Plano Médico (R$ {valorPM}). Além disso, inclui as previsões trabalhistas, como FGTS (R$ {fgts}), Férias (R$ {ferias}), Décimo Terceiro Salário (R$ {decimoTerceiro}), INSS (R$ {inss}) e uma provisão para Seguro-Desemprego (R$ {seguroDesemprego}). Também é necessário considerar a alíquota dos tributos mensais.
+Esse cálculo considera o salário oferecido de R$ {salario}, acrescido dos seguintes benefícios: Vale Refeição (R$ {valorVR}), Vale Alimentação (R$ {valorVA}), Vale Transporte (R$ {valorVT}) e Plano Médico (R$ {valorPM}). Além disso, inclui as previsões trabalhistas, como FGTS (R$ {fgts}), multa de 40% em casos de demissão sem justa causa (R$ {multa40}), Férias (R$ {ferias}), Décimo Terceiro Salário (R$ {decimoTerceiro}), INSS (R$ {inss}) e uma provisão para Seguro-Desemprego (R$ {seguroDesemprego}). Também é necessário considerar a alíquota dos tributos mensais.
 
 Portanto, se o valor oferecido mensalmente for inferior à soma dos seus ganhos atuais calculados acima, a migração para o regime de Pessoa Jurídica não é vantajosa.''')
